@@ -47,7 +47,7 @@
  - #### Similar to above, but this field is optional.
 
 #### After entering all the above fields. Application will validate (except optional attendee rest all fields is mandatory) and send the details to Graph API to book an event. 
-#### On `success`, the application will return the meeting URL (teams meeting URL). Same can be verified in sender/attendee(s) outlook calendar
+#### On `success`, the application will return the `meeting URL (teams meeting URL)`. Same can be verified in sender/attendee(s) outlook calendar
 #### On `failure`, error message details will be displayed with the reason for failure.
 
 #### Please note, while the app interacting with graph, it will prompt you enter user's azure login credentials and prompt for a consent to specific scopes. I will put down the list of scopes used by the application in a seperate section of this page.
@@ -74,7 +74,7 @@
 #### Once done, press the enter key. 
 
 #### Application will validate and passed on the details to graph api, one more time user will be prompted to enter azure user credential with a consent to the list of scopes accessed by the application. 
-#### On `success`, the application will return 'Message posted successfully.'
+#### On `success`, the application will return `Message posted successfully.`
 #### On `failure`, error message details will be displayed with the reason for failure.
 
 
