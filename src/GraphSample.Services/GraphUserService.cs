@@ -97,11 +97,12 @@ public class GraphUserService : IGraphUserService
                     response.MeetingURL = meetingURL;
                 }
             }
-            catch(Exception ex)
+            catch(ServiceException seEx)
             {
-                response.ResponseMessage.Add($"Error Message: {ex.Message} " +
-                    $"|| Inner Exception: {ex.InnerException}" +
-                    $"|| StackTrace Info: {ex.StackTrace}");
+                response.ResponseMessage.Add($"Error Message: {seEx.Message} || " +
+                    $"Status Code: {seEx.ResponseStatusCode} || " +
+                    $"Inner Exception: {seEx.InnerException} || " +
+                    $"Stack Trace: {seEx.StackTrace}");
             }
         }
         return response;        
@@ -152,11 +153,12 @@ public class GraphUserService : IGraphUserService
                 response.ResponseMessage.Clear();
             }
         }
-        catch (Exception ex)
+        catch (ServiceException seEx)
         {
-            response.ResponseMessage.Add($"Error Message: {ex.Message} " +
-                    $"|| Inner Exception: {ex.InnerException}" +
-                    $"|| StackTrace Info: {ex.StackTrace}");
+            response.ResponseMessage.Add($"Error Message: {seEx.Message} || " +
+                $"Status Code: {seEx.ResponseStatusCode} || " +
+                $"Inner Exception: {seEx.InnerException} || " +
+                $"Stack Trace: {seEx.StackTrace}");
         }
 
         return response;
@@ -195,11 +197,13 @@ public class GraphUserService : IGraphUserService
                 
             }
             response.ResponseMessage.Clear();
-        } catch(Exception ex)
+        }
+        catch (ServiceException seEx)
         {
-            response.ResponseMessage.Add($"Error Message: {ex.Message} || " +
-                    $"Inner Exception: {ex.InnerException}" +
-                    $"|| StackTrace Info: {ex.StackTrace}");
+            response.ResponseMessage.Add($"Error Message: {seEx.Message} || " +
+                $"Status Code: {seEx.ResponseStatusCode} || " +
+                $"Inner Exception: {seEx.InnerException} || " +
+                $"Stack Trace: {seEx.StackTrace}");
         }
 
         return response;

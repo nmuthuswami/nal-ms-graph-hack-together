@@ -105,6 +105,12 @@ namespace MsIntuneGraphSample
 
         private async Task SendAMessageToChannel()
         {
+            var settingsValidation = _config.Validate();
+            if (!settingsValidation.IsValid)
+            {
+                Console.WriteLine(settingsValidation.message);
+                _config.ClientId = Console.ReadLine();
+            }
             Console.WriteLine("Pulling your Team/Channel Details......");
             var channelDetails = await _graphUserService.GetChannelDetails();
 
