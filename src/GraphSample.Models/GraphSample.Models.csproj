@@ -8,8 +8,18 @@
 
   <ItemGroup>
     <None Remove="Microsoft.Extensions.Configuration" />
+    <None Remove="Response\" />
+    <None Remove="Response\Base\" />
+    <None Remove="Request\" />
+    <None Remove="Configuration\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Response\" />
+    <Folder Include="Response\Base\" />
+    <Folder Include="Request\" />
+    <Folder Include="Configuration\" />
   </ItemGroup>
 </Project>

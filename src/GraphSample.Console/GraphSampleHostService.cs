@@ -17,32 +17,7 @@ namespace MsIntuneGraphSample
 
 
         public GraphSampleHostService(Settings config, IGraphUserService graphUserService, IHostApplicationLifetime appLifeTime)
-        => (_config, _graphUserService, _appLifeTime) = (config, graphUserService, appLifeTime);
-        /*
-        private async Task BookMeeting()
-        {
-            MeetingModelRequest requestMettingModel = new MeetingModelRequest();
-            Console.WriteLine("Enter StartDate (dd/mm/yyyy) [ex: 15/11/2023]:");
-            requestMettingModel.MeetingStartDate = Console.ReadLine() ?? string.Empty;
-            Console.WriteLine("Enter StartTime (hh:mm) [ex: 13:30]:");
-            requestMettingModel.MeetingStartTime = Console.ReadLine() ?? string.Empty;
-            Console.WriteLine("Enter EndDate (dd/mm/yyyy): [ex: 15/11/2023]");
-            requestMettingModel.MeetingEndDate = Console.ReadLine() ?? string.Empty;
-            Console.WriteLine("Enter EndTime (hh:mm): [ex: 14:00]");
-            requestMettingModel.MeetingEndTime = Console.ReadLine() ?? string.Empty;
-            var result = await _graphUserService.BookMeetingAsync(requestMettingModel);
-            if (result.IsSuccess)
-            {
-                Console.WriteLine(result.MeetingURL);
-            }
-            else
-            {
-                foreach (var msg in result?.ResponseMessage)
-                {
-                    Console.WriteLine(msg);
-                }
-            }
-        }*/
+        => (_config, _graphUserService, _appLifeTime) = (config, graphUserService, appLifeTime);       
 
         private async Task BookMeetingEvent()
         {
@@ -73,7 +48,7 @@ namespace MsIntuneGraphSample
                 Console.WriteLine("Enter Require Attendee(s) Emailaddress [ex: abc@xyz.com]:");
                 request.Attendees.Add(Console.ReadLine().Trim());
                 Console.WriteLine("Press c to exit or any key to proceed to next attendee");
-                if (Console.ReadLine().Trim().ToLower() == "c")
+                if (Console.ReadKey(true).KeyChar.Equals('c'))
                     break;
             }
             while (true)
@@ -81,7 +56,7 @@ namespace MsIntuneGraphSample
                 Console.WriteLine("Enter Optional Attendee(s) Emailaddress [ex:abc@xyz.com]");
                 request.OptionalAttendees.Add(Console.ReadLine().Trim());
                 Console.WriteLine("Press c to exit or any key to proceed next attendee");
-                if (Console.ReadLine().Trim().ToLower() == "c")
+                if (Console.ReadKey(true).KeyChar.Equals('c'))
                     break;
             }
             var response = await _graphUserService.BookMeetingEventAsync(request);
@@ -234,7 +209,7 @@ namespace MsIntuneGraphSample
                     }
                     finally
                     {
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         _appLifeTime.StopApplication();
                     }
                 });

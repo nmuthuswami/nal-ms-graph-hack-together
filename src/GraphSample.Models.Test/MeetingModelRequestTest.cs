@@ -1,6 +1,4 @@
-﻿using GraphSample.Models;
-
-namespace GraphSample.Models.Test;
+﻿namespace GraphSample.Models.Test;
 
 public class MeetingModelRequestTest
 {
