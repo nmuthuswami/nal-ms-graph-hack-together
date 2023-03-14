@@ -19,38 +19,38 @@
 
 ## Option 1: `Setup a Teams meeting and return the URL`
 
-### This scenario will allow you to setup a meeting in 'PACIFIC STANDARD TIME'. After the meeting is setup, you can see the meeting URL will be returned as output and the same schedule will reflect on your/attendee(s) Outlook calendar.
+### This scenario will allow the user to setup a meeting in 'PACIFIC STANDARD TIME'. After the meeting is setup, the user can see the meeting URL which will be returned as output and the same will be reflected on  user(host) & invited attendee(s) Outlook calendar.
 
 #### After pressing the option 1:
 
 ### Following are the input fields which will be excepted by the user to enter:
 
-### 1. Application (Client) ID 
+### 1. Application (Client) ID `#FF0000` 
  - #### This field will be the application ID registered in Azure Active Directory. [string]
-### 2. Event Subject Name
+### 2. Event Subject Name `#FF0000`
  - #### This field will be the name of the meeting. [string]
-### 3. Event Content
- - #### This field will be the meeting content. [string]
-### 4. Meeting StartDate
+### 3. Event Content `#FF0000`
+ - #### This field will be the meeting email content. [string]
+### 4. Meeting StartDate `#FF0000`
  - #### This field will be the meeting start date in (dd/mm/yyyy) format. [string]
-### 5. Meeting StartTime
+### 5. Meeting StartTime `#FF0000`
  - #### This field will be the meeting start time in (hh:mm) format. [string]
-### 6. Meeting EndDate
+### 6. Meeting EndDate `#FF0000`
  - #### This field will be the meeting end date in (dd/mm/yyyy) format. [string]
-### 7. Meeting EndTime
+### 7. Meeting EndTime `#FF0000`
  - #### This field will be the meeting end time in (hh:mm) format. [string]
-### 8. Event Location
+### 8. Event Location `#FF0000`
  - #### This field will be the meeting location. [string]
-### 9. Required Attendee(s)
+### 9. Required Attendee(s) `#FF0000`
  - #### This field will be the attendee's email address. Application will allow you to enter more than one attendee [collection of string].
 ### 10. Optional Attendee(s)
- - #### Similar to above, but this is optional.
+ - #### Similar to above, but this field is optional.
 
-#### After entering all the above fields. Application will validate (except optional attendee rest all fields it is mandatory) and send the keyed in details to Graph API to book an event. 
-#### On `success`, the application will return the meeting URL. Same can be verified in sender/attendee(s) outlook calendar
+#### After entering all the above fields. Application will validate (except optional attendee rest all fields is mandatory) and send the details to Graph API to book an event. 
+#### On `success`, the application will return the meeting URL (teams meeting URL). Same can be verified in sender/attendee(s) outlook calendar
 #### On `failure`, error message details will be displayed with the reason for failure.
 
-#### Please note, while the app interacting with graph, it will prompt you enter your azure login credentials and prompt for a consent to specific scopes. I will put down the list of scopes used by the application in a seperate section of this page.
+#### Please note, while the app interacting with graph, it will prompt you enter user's azure login credentials and prompt for a consent to specific scopes. I will put down the list of scopes used by the application in a seperate section of this page.
 
 ## Option 2: `Send a message to a Teams channel`
 
