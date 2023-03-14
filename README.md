@@ -1,26 +1,23 @@
-# nal-ms-graph-hack-together
-Hack Together: Demo
-
-## **Project Name:** Nirmal - Hack Together - Demo
+## **Project Name:** Nirmal - Hack Together - Sample
 
 ## **Project Description:**
 
 #### I have taken this project to understand how to use Microsoft Graph API with .net SDK.
-#### I have picked following 2 scenarios and build an console app.
+#### I have picked following 2 scenarios and built an console app.
 
 #### - Setup a Teams meeting and return the URL
-#### - Send a message to a Teams channel or chat 
+#### - Send a message to a Teams channel
 
-## **How to execute my project?: **
+## **How to execute the project?:**
 
-#### As I have mentioned, this is a console app. Execute the application from Visual Studio or command prompt.
+#### As I have mentioned, this is a console app. Execute the application using Visual Studio or command prompt.
 
 #### Once the application is launched, it will prompt you to enter a scenario.
 
 #### Press 1 -> 'Setup a Teams meeting and return the URL'
 #### Press 2 -> 'Send a message to a Teams channel'
 
-## Scenario 1:
+## Option 1: `Setup a Teams meeting and return the URL`
 
 ### This scenario will allow you to setup a meeting in 'PACIFIC STANDARD TIME'. After the meeting is setup, you can see the meeting URL will be returned as output and the same schedule will reflect on your/attendee(s) Outlook calendar.
 
@@ -50,12 +47,12 @@ Hack Together: Demo
  - #### Similar to above, but this is optional.
 
 #### After entering all the above fields. Application will validate (except optional attendee rest all fields it is mandatory) and send the keyed in details to Graph API to book an event. 
-#### On success, the application will return the meeting URL. Same can be verified in sender/attendee(s) outlook calendar
-#### On failure, error message details will be displayed with the reason for failure.
+#### On `success`, the application will return the meeting URL. Same can be verified in sender/attendee(s) outlook calendar
+#### On `failure`, error message details will be displayed with the reason for failure.
 
-#### Please note, while the app interacting with graph, it will prompt you enter your azure login credentials and prompt for a consent to specific scopes. It will put down a list of scopes used by the application in a seperate section.
+#### Please note, while the app interacting with graph, it will prompt you enter your azure login credentials and prompt for a consent to specific scopes. I will put down the list of scopes used by the application in a seperate section of this page.
 
-## Scenario 2:
+## Option 2:
 
 ### This scenario will allow the user to post a message to a specific team & channel.
 
@@ -69,10 +66,15 @@ Hack Together: Demo
 #### After entering the application id, the app will prompt the user to enter azure user credentials to connect with graph api, to pull the list of teams/channels in which the user is member of.
 #### Once the list is displayed, the user will be asked to select the Team/channel to send a message (Please enter only the number against the displayed list).
 
-#### After selecting the team/channel, the user will be prompted to enter a message to the channel. Once done, press the enter key. 
+#### After selecting the team/channel, the user will be prompted to enter a message to the channel. 
+
+### 2. Message
+ - ### This field will be the message that will be posted in the channel. [string]
+
+#### Once done, press the enter key. 
 
 #### Entered details will be passed on to graph api, one more time user will be prompted to enter azure user credential with a consent to the list of scopes accessed by the application. 
-#### On `success`, the application will return 'Message has been posted successfully.'
+#### On `success`, the application will return 'Message posted successfully.'
 #### On `failure`, error message details will be displayed with the reason for failure.
 
 
