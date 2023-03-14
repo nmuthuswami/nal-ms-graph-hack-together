@@ -52,7 +52,7 @@
 
 #### Please note, while the app interacting with graph, it will prompt you enter your azure login credentials and prompt for a consent to specific scopes. I will put down the list of scopes used by the application in a seperate section of this page.
 
-## Option 2:
+## Option 2: `Send a message to a Teams channel`
 
 ### This scenario will allow the user to post a message to a specific team & channel.
 
