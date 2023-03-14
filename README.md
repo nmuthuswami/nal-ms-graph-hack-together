@@ -1,2 +1,83 @@
 # nal-ms-graph-hack-together
-My MS Graph .net - Hack Together
+Hack Together: Demo
+
+## **Project Name:** Nirmal - Hack Together - Demo
+
+## **Project Description:**
+
+#### I have taken this project to understand how to use Microsoft Graph API with .net SDK.
+#### I have picked following 2 scenarios and build an console app.
+
+#### - Setup a Teams meeting and return the URL
+#### - Send a message to a Teams channel or chat 
+
+## **How to execute my project?: **
+
+#### As I have mentioned, this is a console app. Execute the application from Visual Studio or command prompt.
+
+#### Once the application is launched, it will prompt you to enter a scenario.
+
+#### Press 1 -> 'Setup a Teams meeting and return the URL'
+#### Press 2 -> 'Send a message to a Teams channel'
+
+## Scenario 1:
+
+### This scenario will allow you to setup a meeting in 'PACIFIC STANDARD TIME'. After the meeting is setup, you can see the meeting URL will be returned as output and the same schedule will reflect on your/attendee(s) Outlook calendar.
+
+#### After pressing the option 1:
+
+### Following are the input fields which will be excepted by the user to enter:
+
+### 1. Application (Client) ID 
+ - #### This field will be the application ID registered in Azure Active Directory. [string]
+### 2. Event Subject Name
+ - #### This field will be the name of the meeting. [string]
+### 3. Event Content
+ - #### This field will be the meeting content. [string]
+### 4. Meeting StartDate
+ - #### This field will be the meeting start date in (dd/mm/yyyy) format. [string]
+### 5. Meeting StartTime
+ - #### This field will be the meeting start time in (hh:mm) format. [string]
+### 6. Meeting EndDate
+ - #### This field will be the meeting end date in (dd/mm/yyyy) format. [string]
+### 7. Meeting EndTime
+ - #### This field will be the meeting end time in (hh:mm) format. [string]
+### 8. Event Location
+ - #### This field will be the meeting location. [string]
+### 9. Required Attendee(s)
+ - #### This field will be the attendee's email address. Application will allow you to enter more than one attendee [collection of string].
+### 10. Optional Attendee(s)
+ - #### Similar to above, but this is optional.
+
+#### After entering all the above fields. Application will validate (except optional attendee rest all fields it is mandatory) and send the keyed in details to Graph API to book an event. 
+#### On success, the application will return the meeting URL. Same can be verified in sender/attendee(s) outlook calendar
+#### On failure, error message details will be displayed with the reason for failure.
+
+#### Please note, while the app interacting with graph, it will prompt you enter your azure login credentials and prompt for a consent to specific scopes. It will put down a list of scopes used by the application in a seperate section.
+
+## Scenario 2:
+
+### This scenario will allow the user to post a message to a specific team & channel.
+
+#### After pressing the option 2:
+
+### Following are the input fields which will be excepted by the user to enter:
+
+### 1. Application (Client) ID 
+ - #### This field will be the application ID registered in Azure Active Directory. [string]
+
+#### After entering the application id, the app will prompt the user to enter azure user credentials to connect with graph api, to pull the list of teams/channels in which the user is member of.
+#### Once the list is displayed, the user will be asked to select the Team/channel to send a message (Please enter only the number against the displayed list).
+
+#### After selecting the team/channel, the user will be prompted to enter a message to the channel. Once done, press the enter key. 
+
+#### Entered details will be passed on to graph api, one more time user will be prompted to enter azure user credential with a consent to the list of scopes accessed by the application. 
+#### On `success`, the application will return 'Message has been posted successfully.'
+#### On `failure`, error message details will be displayed with the reason for failure.
+
+
+## Used Scopes:
+
+- #### Calendars.ReadWrite - To create an online meeting event.
+- #### Team.ReadBasic.All; Channel.ReadBasic.All - To get the teams & channel details in which the user is member of.
+- #### ChannelMessage.Send; Group.ReadWrite.All - To post a message to a channel.
