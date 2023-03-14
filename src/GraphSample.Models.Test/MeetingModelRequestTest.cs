@@ -473,7 +473,7 @@ public class MeetingModelRequestTest
     [Fact]
     public void ValidateMeetingModel_OptionalAttendees_ValidValue()
     {
-        List<string> actual = new() { "test.user@contonso.com" };
+        List<string> actual = new() { "test.user@xyz.com" };
         int actualErrorCount = 8;
 
         var sut = new MeetingModelRequest();
@@ -487,13 +487,13 @@ public class MeetingModelRequestTest
     }
     
     [Theory]
-    [InlineData("12/13/2023")]
+    [InlineData("13/12/2023")]
     [InlineData("01/01/0001")]
     [InlineData("99/99/9999")]
     public void ValidateMeetingModel_MeetingStartDate_InValid(string actual)
     {
         //string actual = "12/13/2023";
-        string actualErrorMessage = $"MeetingStartDate is not in a valid format. (dd/MM/yyyy): {actual}";
+        string actualErrorMessage = $"MeetingStartDate is not in a valid format. (mm/dd/yyyy): {actual}";
         var sut = new MeetingModelRequest();
         sut.MeetingStartDate = actual;
 
@@ -513,7 +513,7 @@ public class MeetingModelRequestTest
         //string actual = "11:00:00";
         string actualErrorMessage = $"MeetingStartTime is not in a valid format. (hh:mm): {actual}";
         var sut = new MeetingModelRequest();
-        sut.MeetingStartDate = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+        sut.MeetingStartDate = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
         sut.MeetingStartTime = actual;
 
         var actualResult = sut.CalculateMeetingDateTime();
@@ -523,13 +523,13 @@ public class MeetingModelRequestTest
     }
 
     [Theory]
-    [InlineData("12/13/2023")]  
+    [InlineData("13/12/2023")]  
     [InlineData("01/01/0001")]
     [InlineData("99/99/9999")]
     public void ValidateMeetingModel_MeetingEndDate_InValid(string actual)
     {
         //string actual = "12/13/2023";
-        string actualErrorMessage = $"MeetingEndDate is not in a valid format. (dd/MM/yyyy): {actual}";
+        string actualErrorMessage = $"MeetingEndDate is not in a valid format. (mm/dd/yyyy): {actual}";
         var sut = new MeetingModelRequest();
         sut.MeetingEndDate = actual;
 
@@ -548,9 +548,9 @@ public class MeetingModelRequestTest
         //string actual = "11:00:00";
         string actualErrorMessage = $"MeetingEndTime is not in a valid format. (hh:mm): {actual}";
         var sut = new MeetingModelRequest();
-        sut.MeetingStartDate = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+        sut.MeetingStartDate = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
         sut.MeetingStartTime = "11:00";
-        sut.MeetingEndDate = DateTime.Now.AddDays(2).ToString("dd/MM/yyyy");
+        sut.MeetingEndDate = DateTime.Now.AddDays(2).ToString("MM/dd/yyyy");
         sut.MeetingEndTime = actual;
             
         var actualResult = sut.CalculateMeetingDateTime();
@@ -563,9 +563,9 @@ public class MeetingModelRequestTest
     [Fact]
     public void ValidateMeetingModel_MeetingDate_InValid()
     {
-        var startDate = DateTime.Now.AddDays(2).ToString("dd/MM/yyyy");
+        var startDate = DateTime.Now.AddDays(2).ToString("MM/dd/yyyy");
         var startTime = "11:00";
-        var endDate = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+        var endDate = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
         var endTime = "11:30";
 
         string actualErrorMessage = $"MeetingStartDate/Time is earlier than MeetingEndDate/Time: " +
@@ -591,9 +591,9 @@ public class MeetingModelRequestTest
     [InlineData("23:59", "00:00")]
     public void ValidateMeetingModel_MeetingDate_InValidTime(string startTime, string endTime)
     {
-        var startDate = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+        var startDate = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
         //var startTime = "11:30";
-        var endDate = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+        var endDate = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
         //var endTime = "11:00";
 
         string actualErrorMessage = $"MeetingStartDate/Time is earlier than MeetingEndDate/Time: " +
@@ -619,9 +619,9 @@ public class MeetingModelRequestTest
     [InlineData("00:00", "23:59")]
     public void ValidateMeetingModel_MeetingDate_Valid(string startTime, string endTime)
     {
-        var startDate = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+        var startDate = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
         //var startTime = "11:00";
-        var endDate = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+        var endDate = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
         //var endTime = "11:30";
 
         string actualErrorMessage = $"MeetingStartDate/Time is earlier than MeetingEndDate/Time: " +

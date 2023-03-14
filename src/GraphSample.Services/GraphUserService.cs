@@ -4,6 +4,7 @@ using Microsoft.Graph;
 using Microsoft.Graph.Models; 
 using Azure.Identity;
 using Azure;
+using Microsoft.Graph.Models.ODataErrors;
 
 namespace GraphSample.Services;
 public class GraphUserService : IGraphUserService
@@ -12,6 +13,7 @@ public class GraphUserService : IGraphUserService
     private readonly GraphServiceClient _graphServiceClient;
 
     private const string GREENWICH_MEAN_TIME = "Greenwich Mean Time";
+    private const string PACIFIC_STD_TIME = "Pacific Standard Time";
     
     public GraphUserService(Settings settings)
     {
@@ -41,7 +43,7 @@ public class GraphUserService : IGraphUserService
             response?.ResponseMessage?.AddRange(calculatedDT.ErrorMessages);
         }
 
-        if (response?.IsSuccess ?? true)
+        if (response?.IsSuccess ?? false)
         {
             try
             {
@@ -63,13 +65,13 @@ public class GraphUserService : IGraphUserService
                     },
                     Start = new DateTimeTimeZone
                     {
-                        DateTime = calculatedDT.StartDateTime.ToString(),
-                        TimeZone = GREENWICH_MEAN_TIME
+                        DateTime = calculatedDT.StartDateTime.ToString("MM/dd/yyyy hh:mm:ss"),
+                        TimeZone = PACIFIC_STD_TIME
                     },
                     End = new DateTimeTimeZone
                     {
-                        DateTime = calculatedDT.EndDateTime.ToString(),
-                        TimeZone = GREENWICH_MEAN_TIME
+                        DateTime = calculatedDT.EndDateTime.ToString("MM/dd/yyyy hh:mm:ss"),
+                        TimeZone = PACIFIC_STD_TIME
                     },
                     Location = new Location
                     {
@@ -83,7 +85,7 @@ public class GraphUserService : IGraphUserService
 
                 var result = await graphServiceClient.Me.Events.PostAsync(requestBody, (config) =>
                 {
-                    config.Headers.Add("Prefer", $"outlook.timezone=\"{GREENWICH_MEAN_TIME}\"");
+                    config.Headers.Add("Prefer", $"outlook.timezone=\"{PACIFIC_STD_TIME}\"");
                 });
 
                 string meetingURL = result?.OnlineMeeting?.JoinUrl ?? string.Empty;
@@ -96,6 +98,11 @@ public class GraphUserService : IGraphUserService
                 {
                     response.MeetingURL = meetingURL;
                 }
+            }
+            catch(ODataError ode)
+            {
+                response.ResponseMessage.Add($"ODataError Code: {ode.Error.Code} " +
+                    $"|| Message: {ode.Error.Message} || Details: {ode.Error.Details}");
             }
             catch(ServiceException seEx)
             {
@@ -153,6 +160,11 @@ public class GraphUserService : IGraphUserService
                 response.ResponseMessage.Clear();
             }
         }
+        catch(ODataError ode)
+        {
+            response.ResponseMessage.Add($"ODataError Code: {ode.Error.Code} " +
+                $"|| Message: {ode.Error.Message}");
+        }
         catch (ServiceException seEx)
         {
             response.ResponseMessage.Add($"Error Message: {seEx.Message} || " +
@@ -197,6 +209,11 @@ public class GraphUserService : IGraphUserService
                 
             }
             response.ResponseMessage.Clear();
+        }
+        catch(ODataError ode)
+        {
+            response.ResponseMessage.Add($"ODataError Code: {ode.Error.Code} " +
+                $"|| Message: {ode.Error.Message}");
         }
         catch (ServiceException seEx)
         {

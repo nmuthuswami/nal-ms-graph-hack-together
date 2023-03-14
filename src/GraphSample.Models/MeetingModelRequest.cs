@@ -15,7 +15,7 @@ namespace GraphSample.Models
         public List<string> Attendees { get; set; } = new List<string>();
         public List<string> OptionalAttendees { get; set; } = new List<string>();
 
-        private const string DATE_FORMAT = "dd/MM/yyyy";
+        private const string DATE_FORMAT = "MM/dd/yyyy";
 
         public (bool IsValid,List<string> Messages) Validate()
         {
@@ -76,7 +76,7 @@ namespace GraphSample.Models
             {
                 if (startDt == DateTime.MinValue || startDt == DateTime.MaxValue)
                 {
-                    messages.Add($"MeetingStartDate is not in a valid format. (dd/MM/yyyy): {MeetingStartDate}");
+                    messages.Add($"MeetingStartDate is not in a valid format. (mm/dd/yyyy): {MeetingStartDate}");
                 }
 
                 else if (startDt < DateTime.Today)
@@ -101,14 +101,14 @@ namespace GraphSample.Models
                             messages.Add($"MeetingStartTime is not in a valid format. (hh:mm): {MeetingStartTime}");
                         }
 
-                        var utcTime = DateTime.SpecifyKind(startDt, DateTimeKind.Utc);
-                        startDtOffset = new DateTimeOffset(utcTime);
+                        //var utcTime = DateTime.SpecifyKind(startDt, DateTimeKind.Local);
+                        startDtOffset = new DateTimeOffset(startDt);
                     }
                 }
             }
             else
             {
-                messages.Add($"MeetingStartDate is not in a valid format. (dd/MM/yyyy): {MeetingStartDate}");
+                messages.Add($"MeetingStartDate is not in a valid format. (mm/dd/yyyy): {MeetingStartDate}");
             }
 
             if(DateTime.TryParseExact(MeetingEndDate,DATE_FORMAT,
@@ -116,7 +116,7 @@ namespace GraphSample.Models
             {
                 if (endDt == DateTime.MinValue || endDt == DateTime.MaxValue)
                 {
-                    messages.Add($"MeetingEndDate is not in a valid format. (dd/MM/yyyy): {MeetingEndDate}");
+                    messages.Add($"MeetingEndDate is not in a valid format. (mm/dd/yyyy): {MeetingEndDate}");
                 }
                 else if(endDt < DateTime.Today)
                 {
@@ -140,14 +140,14 @@ namespace GraphSample.Models
                             messages.Add($"MeetingEndTime is not in a valid format. (hh:mm): {MeetingEndTime}");
                         }
 
-                        var endUtcTime = DateTime.SpecifyKind(endDt, DateTimeKind.Utc);
-                        endDtOffset = new DateTimeOffset(endUtcTime);
+                        //var endUtcTime = DateTime.SpecifyKind(endDt, DateTimeKind.Local);
+                        endDtOffset = new DateTimeOffset(endDt);
                     }
                 }
             }
             else
             {
-                messages.Add($"MeetingEndDate is not in a valid format. (dd/MM/yyyy): {MeetingEndDate }");
+                messages.Add($"MeetingEndDate is not in a valid format. (mm/dd/yyyy): {MeetingEndDate }");
             }
 
             if(DateTimeOffset.Compare(endDtOffset, startDtOffset) < 0)
@@ -160,4 +160,3 @@ namespace GraphSample.Models
         }
     }
 }
-

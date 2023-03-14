@@ -58,11 +58,11 @@ namespace MsIntuneGraphSample
             request.Subject = Console.ReadLine().Trim() ?? string.Empty;
             Console.WriteLine("Enter Event Content:");
             request.BodyContent = Console.ReadLine().Trim() ?? string.Empty;
-            Console.WriteLine("Enter StartDate (dd/mm/yyyy) [ex: 15/11/2023]:");
+            Console.WriteLine("Enter StartDate (mm/dd/yyyy) [ex: 11/15/2023]:");
             request.MeetingStartDate = Console.ReadLine().Trim() ?? string.Empty;
             Console.WriteLine("Enter StartTime (hh:mm) [ex: 13:30]:");
             request.MeetingStartTime = Console.ReadLine().Trim() ?? string.Empty;
-            Console.WriteLine("Enter EndDate (dd/mm/yyyy): [ex: 15/11/2023]");
+            Console.WriteLine("Enter EndDate (mm/dd/yyyy): [ex: 11/15/2023]");
             request.MeetingEndDate = Console.ReadLine().Trim() ?? string.Empty;
             Console.WriteLine("Enter EndTime (hh:mm): [ex: 14:00]");
             request.MeetingEndTime = Console.ReadLine().Trim() ?? string.Empty;
