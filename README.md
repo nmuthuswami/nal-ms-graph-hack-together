@@ -25,7 +25,7 @@
 
 ### Following are the input fields which will be excepted by the user to enter:
 
-### 1. Application (Client) ID `#FF0000` 
+### 1. Application (Client) ID `#FF0000 *` 
  - #### This field will be the application ID registered in Azure Active Directory. [string]
 ### 2. Event Subject Name `#FF0000`
  - #### This field will be the name of the meeting. [string]
