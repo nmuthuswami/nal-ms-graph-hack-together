@@ -25,23 +25,23 @@
 
 ### Following are the input fields which will be excepted by the user to enter:
 
-### 1. Application (Client) ID `#FF0000 *` 
+### 1. Application (Client) ID * 
  - #### This field will be the application ID registered in Azure Active Directory. [string]
-### 2. Event Subject Name `#FF0000`
+### 2. Event Subject Name * 
  - #### This field will be the name of the meeting. [string]
-### 3. Event Content `#FF0000`
+### 3. Event Content * 
  - #### This field will be the meeting email content. [string]
-### 4. Meeting StartDate `#FF0000`
+### 4. Meeting StartDate * 
  - #### This field will be the meeting start date in (dd/mm/yyyy) format. [string]
-### 5. Meeting StartTime `#FF0000`
+### 5. Meeting StartTime * 
  - #### This field will be the meeting start time in (hh:mm) format. [string]
-### 6. Meeting EndDate `#FF0000`
+### 6. Meeting EndDate * 
  - #### This field will be the meeting end date in (dd/mm/yyyy) format. [string]
-### 7. Meeting EndTime `#FF0000`
+### 7. Meeting EndTime * 
  - #### This field will be the meeting end time in (hh:mm) format. [string]
-### 8. Event Location `#FF0000`
+### 8. Event Location * 
  - #### This field will be the meeting location. [string]
-### 9. Required Attendee(s) `#FF0000`
+### 9. Required Attendee(s) * 
  - #### This field will be the attendee's email address. Application will allow you to enter more than one attendee [collection of string].
 ### 10. Optional Attendee(s)
  - #### Similar to above, but this field is optional.
@@ -60,7 +60,7 @@
 
 ### Following are the input fields which will be excepted by the user to enter:
 
-### 1. Application (Client) ID 
+### 1. Application (Client) ID * 
  - #### This field will be the application ID registered in Azure Active Directory. [string]
 
 #### After entering the application id, the app will prompt the user to enter azure user credentials to connect with graph api, to pull the list of teams/channels in which the user is member of.
@@ -68,12 +68,12 @@
 
 #### After selecting the team/channel, the user will be prompted to enter a message to the channel. 
 
-### 2. Message
+### 2. Message * 
  - ### This field will be the message that will be posted in the channel. [string]
 
 #### Once done, press the enter key. 
 
-#### Entered details will be passed on to graph api, one more time user will be prompted to enter azure user credential with a consent to the list of scopes accessed by the application. 
+#### Application will validate and passed on the details to graph api, one more time user will be prompted to enter azure user credential with a consent to the list of scopes accessed by the application. 
 #### On `success`, the application will return 'Message posted successfully.'
 #### On `failure`, error message details will be displayed with the reason for failure.
 
