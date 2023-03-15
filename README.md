@@ -83,16 +83,14 @@ https://6yjrg6-my.sharepoint.com/:v:/g/personal/admin_nak_6yjrg6_onmicrosoft_com
 #### On `success`, the application will return `Message posted successfully.`
 #### On `failure`, error message details will be displayed with the reason for failure.
 
-### **Demo Video**
+### **Demo - Video**
 
-[![Watch the video]](https://6yjrg6-my.sharepoint.com/:v:/g/personal/admin_nak_6yjrg6_onmicrosoft_com/EbK9vjZTRxJIr9hg7Ggnl9wByiVpiL6ZnTlMW8fuHHVojg?e=zNEQ0m)
+https://6yjrg6-my.sharepoint.com/:v:/g/personal/admin_nak_6yjrg6_onmicrosoft_com/EbK9vjZTRxJIr9hg7Ggnl9wByiVpiL6ZnTlMW8fuHHVojg?e=zNEQ0m
 
 
 Unfortunately, in the above video online ms teams stopped working in safari browser, below video-demo explains the output using edge browser.
 
-[![Watch the video]](https://6yjrg6-my.sharepoint.com/:v:/g/personal/admin_nak_6yjrg6_onmicrosoft_com/ERttLk3DpldPvfL3zaBBcocB7I3Rdjpo5stgXzd-lhvVKw?e=XgkhXV)
-
-
+https://6yjrg6-my.sharepoint.com/:v:/g/personal/admin_nak_6yjrg6_onmicrosoft_com/ERttLk3DpldPvfL3zaBBcocB7I3Rdjpo5stgXzd-lhvVKw?e=XgkhXV
 
 ## Used Scopes:
 
