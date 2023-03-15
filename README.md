@@ -54,6 +54,10 @@
 
 #### Please note, while the app interacting with graph, it will prompt you enter user's azure login credentials and prompt for a consent to specific scopes. I will put down the list of scopes used by the application in a seperate section of this page.
 
+### **Demo - Video**
+
+https://6yjrg6-my.sharepoint.com/:v:/g/personal/admin_nak_6yjrg6_onmicrosoft_com/EYo0Vbx5hqhBqiBFrJcSFzMB_KLbjZxlT7sI9LVGNmnzhQ?e=Ji7NgT
+
 ## Option 2: `Send a message to a Teams channel`
 
 ### This scenario will allow the user to post a message to a specific team & channel.
@@ -78,6 +82,14 @@
 #### Application will validate and passed on the details to graph api, one more time user will be prompted to enter azure user credential with a consent to the list of scopes accessed by the application. 
 #### On `success`, the application will return `Message posted successfully.`
 #### On `failure`, error message details will be displayed with the reason for failure.
+
+### **Demo Video**
+
+https://6yjrg6-my.sharepoint.com/:v:/g/personal/admin_nak_6yjrg6_onmicrosoft_com/EbK9vjZTRxJIr9hg7Ggnl9wByiVpiL6ZnTlMW8fuHHVojg?e=zNEQ0m
+
+Unfortunately, in the above video suddenly online ms teams stopped working in safari browser, below video-demo explains in the output using edge browser
+
+https://6yjrg6-my.sharepoint.com/:v:/g/personal/admin_nak_6yjrg6_onmicrosoft_com/ERttLk3DpldPvfL3zaBBcocB7I3Rdjpo5stgXzd-lhvVKw?e=XgkhXV
 
 
 ## Used Scopes:
